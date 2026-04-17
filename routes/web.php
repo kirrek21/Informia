@@ -15,10 +15,16 @@ use App\Http\Controllers\ArticleController;
 | be assigned to the "web" middleware group. Make something great!
 |
 */
-Route::resource('article', ArticleController::class);
+Route::resource('article', ArticleController::class)->middleware('auth:sanctum');
 
-Route::get('/signup', [AuthController::class, 'create']);
-Route::post('/auth/login', [AuthController::class, 'signUp']);
+//Auth
+Route::get('/auth/create', [AuthController::class, 'create']);
+Route::post('/auth/signUp', [AuthController::class, 'signUp']);
+Route::get('/auth/login', [AuthController::class, 'login'])->name('login');
+Route::post('/auth/signIn', [AuthController::class, 'customLogin']);
+Route::get('/auth/logout', [AuthController::class, 'logout']);
+
+
 Route::get('/', [MainController::class, 'index']);
 Route::get('/galery/{full_image}', [MainController::class, 'show']);
 

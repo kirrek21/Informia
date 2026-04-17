@@ -15,8 +15,7 @@ use App\Http\Controllers\ArticleController;
 | be assigned to the "web" middleware group. Make something great!
 |
 */
-
-Route::get('article/show', [ArticleController::class, 'index']);
+Route::resource('article', ArticleController::class);
 
 Route::get('/signup', [AuthController::class, 'create']);
 Route::post('/auth/login', [AuthController::class, 'signUp']);

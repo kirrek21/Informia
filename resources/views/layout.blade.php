@@ -32,6 +32,9 @@
         <li class="nav-item">
           <a class="nav-link" href="contact">Контакты</a>
         </li>
+        <li class="nav-item">
+          <a class="nav-link" href="/article/show">Новости</a>
+        </li>
       </ul>
     </div>
     <div class="navbar-nav d-flex justify-content-end">

@@ -54,7 +54,16 @@ class ArticleController extends Controller
      */
     public function show(Article $article)
     {
-        return view('articles/show', ['article'=>$article]);
+        $comments = $article->comments()
+            ->with('user')
+            ->where('is_approved', true)
+            ->latest()
+            ->get();
+
+        return view('articles/show', [
+            'article' => $article,
+            'comments' => $comments
+        ]);
     }
 
     /**

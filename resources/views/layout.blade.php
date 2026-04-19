@@ -57,6 +57,11 @@
       </li>
       @endguest
       @auth
+      @if(auth()->user()->role_id == 1)
+        <li class="nav-item">
+          <a class="nav-link" href="{{ route('comments.moderation') }}">Модерация комментариев</a>
+        </li>
+      @endif
       <li class="nav-item">
         <a class="nav-link" href="/auth/logout">Выйти</a>
       </li>
